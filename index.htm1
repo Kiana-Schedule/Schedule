@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Schedule</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <h1>Schedule</h1>
+</header>
+
+<nav>
+  <button onclick="showPage('main')">All</button>
+  <button onclick="showPage('urgent')">⚠️</button>
+  <button onclick="showPage('25')">25%</button>
+  <button onclick="showPage('50')">50%</button>
+  <button onclick="showPage('75')">75%</button>
+  <button onclick="showPage('100')">Completed</button>
+</nav>
+
+<section id="mainPage"></section>
+
+<section class="formSection">
+  <h2>Add Assignment</h2>
+  <input id="title" placeholder="Assignment Name">
+  <input type="datetime-local" id="deadline">
+  <input type="number" id="hours" placeholder="Estimated Total Hours">
+  <select id="difficulty">
+    <option value="1">Easy</option>
+    <option value="2">Medium</option>
+    <option value="3">Hard</option>
+  </select>
+  <button onclick="addAssignment()">Add</button>
+</section>
+
+<section>
+  <button onclick="generateDay()">Generate 8 Hour Day</button>
+  <div id="schedule"></div>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
