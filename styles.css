@@ -1,0 +1,57 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  background: #ffffff;
+  color: #111;
+}
+
+header {
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+nav button {
+  margin-right: 10px;
+  padding: 8px 12px;
+  border: none;
+  background: #f0f0f0;
+  border-radius: 8px;
+}
+
+section {
+  padding: 20px;
+}
+
+.assignment {
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: #f9f9f9;
+  position: relative;
+}
+
+.red { background: #ffe5e5; }
+.orange { background: #fff1e0; }
+.blue { background: #e5f0ff; }
+.green { background: #e5ffe9; }
+
+.statusIcon {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 20px;
+}
+
+.formSection input, .formSection select {
+  display: block;
+  margin-bottom: 10px;
+  padding: 8px;
+  width: 100%;
+}
