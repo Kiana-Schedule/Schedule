@@ -107,3 +107,36 @@ render();
 if("serviceWorker" in navigator){
   navigator.serviceWorker.register("service-worker.js");
 }
+// Activate assignment selection, back button, and proportional hours
+
+// When user clicks a section, show selectable assignments instead of auto-adding all
+function generateSelectedDay(sectionAssignments) {
+    const selected = sectionAssignments.filter((a, i) => {
+        const checkbox = document.getElementById(`a${i}`);
+        return checkbox && checkbox.checked;
+    });
+
+    if (selected.length === 0) return alert("Select at least one assignment!");
+
+    // Distribute hours based on difficulty/urgency
+    const assignmentsWithHours = distributeHours(selected);
+
+    // Display the day
+    const scheduleDiv = document.getElementById("schedule");
+    scheduleDiv.innerHTML = "<h2>Today's Plan:</h2>";
+    assignmentsWithHours.forEach(a => {
+        const div = document.createElement("div");
+        div.textContent = `${a.title} : ${a.hours} hours`;
+        scheduleDiv.appendChild(div);
+    });
+
+    // Add the back button
+    addBackButton();
+}
+
+// Replace old generateDay() calls with renderAssignmentSelection for the section
+function showPage(sectionName) {
+    // Get assignments for this section
+    const sectionAssignments = allAssignments.filter(a => a.section === sectionName);
+    renderAssignmentSelection(sectionAssignments);
+}
